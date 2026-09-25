@@ -1,0 +1,30 @@
+name: Build Explore MFC EXE
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+
+jobs:
+  build:
+    runs-on: windows-2022
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Setup MSBuild
+        uses: microsoft/setup-msbuild@v2
+      - name: Build Explore
+        shell: cmd
+        run: msbuild Explore.sln /m /p:Configuration=Release /p:Platform=x64
+      - name: Verify EXE
+        shell: powershell
+        run: |
+          if (!(Test-Path "x64\Release\Explore.exe")) {
+            Write-Error "EXE was not created."
+            exit 1
+          }
+      - name: Upload EXE
+        uses: actions/upload-artifact@v4
+        with:
+          name: Explore-MFC-EXE
+          path: x64/Release/Explore.exe
