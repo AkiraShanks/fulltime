@@ -1,0 +1,14 @@
+#include "resource.h"
+#include <afxres.h>
+IDI_ICON1 ICON DISCARDABLE "explore.ico"
+
+IDD_MAIN DIALOGEX 0, 0, 230, 85
+STYLE DS_SETFONT | WS_CAPTION | WS_SYSMENU | WS_MINIMIZEBOX
+EXSTYLE WS_EX_TOOLWINDOW
+CAPTION "Explore"
+FONT 9, "Segoe UI"
+BEGIN
+    PUSHBUTTON "Turn On (Alt+Q)", ID_BUTTON_ON, 12, 18, 100, 26
+    PUSHBUTTON "Turn Off (Alt+W)", ID_BUTTON_OFF, 118, 18, 100, 26
+    LTEXT "Use the tray icon to show or exit.", -1, 12, 56, 205, 12
+END

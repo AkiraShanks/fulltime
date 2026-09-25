@@ -1,0 +1,1 @@
+# Build fix\n\nThe WM_HOTKEY handler now uses the MFC-compatible signature `OnHotKey(UINT nHotKeyId, UINT, UINT)`.\n
